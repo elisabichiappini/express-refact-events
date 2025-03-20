@@ -13,7 +13,12 @@ app.use(express.json());
 
 //prima pagina
 app.get('/', (req, res) => {
-    res.send('<h1>Gestore Events</h1>')
+    res.send(`
+        <h1>Gestore Events</h1>
+        <div>
+        <a href="http://localhost:3000/events" target="_blank">Lista Eventi</a>
+        </div
+        `)
 });
 
 //rotte sono il router eventis
