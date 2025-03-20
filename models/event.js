@@ -20,7 +20,7 @@ class Event {
         return Event.lastId;
     }
 
-    static getEvent() {
+    static getEvents() {
         return new Promise((resolve, reject) => {
             fs.readFile(filePath, (error, data) => {
                 if(error) {

@@ -1,0 +1,37 @@
+[
+    {
+      "id": 1,
+      "title": "Concert in the Park",
+      "description": "A live concert featuring local bands.",
+      "date": "2024-06-15",
+      "maxSeats": 200
+    },
+    {
+      "id": 2,
+      "title": "Art Exhibition",
+      "description": "An exhibition showcasing modern art.",
+      "date": "2024-07-01",
+      "maxSeats": 150
+    },
+    {
+      "id": 3,
+      "title": "Tech Conference",
+      "description": "A conference for the latest in tech innovations.",
+      "date": "2024-08-20",
+      "maxSeats": 500
+    },
+    {
+      "id": 4,
+      "title": "Food Festival",
+      "description": "A festival with food from around the world.",
+      "date": "2024-09-05",
+      "maxSeats": 300
+    },
+    {
+      "id": 5,
+      "title": "Marathon",
+      "description": "Annual city marathon event.",
+      "date": "2024-10-10",
+      "maxSeats": 1000
+    }
+  ]
