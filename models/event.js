@@ -21,15 +21,7 @@ class Event {
     }
 
     static getEvents() {
-        return new Promise((resolve, reject) => {
-            fs.readFile(filePath, (error, data) => {
-                if(error) {
-                    return reject(error);
-                }
-                const events = JSON.parse(data);
-                resolve(events);
-            });
-        });
+        return require(filePath);
     }
 
     static saveEvent(event) {
@@ -45,6 +37,29 @@ class Event {
                 });
             })
             .catch((error) => reject(error));
+        })
+    }
+
+    static createEvent(event) {
+        const newEvent = JSON.stringify([...Event.getEvents(), { ...event }]);
+        fs.writeFileSync(filePath, newEvent, 'utf-8');
+        console.log(`creat ocon successo un nuovo evento ${event.title}`);
+    }
+
+    static getEventById(id) {
+        const events = require(filePath);
+        return events.find((event) => event.id === id);
+    }
+
+    static getEVentFilterd(filters) {
+        const events = require(filePath);
+        return events.filter((event) => {
+            for (const element in filters) {
+                if(event[element] !== filters[element]) {
+                    return false;
+                }
+            }
+            return true;
         })
     }
 }
