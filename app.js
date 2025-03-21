@@ -5,6 +5,10 @@ const app = express();
 const port = process.env.PORT || 3000;
 const host = process.env.HOST || 'localhost';
 
+//middlewares
+const errorsFormatter = require('./middlewares/errorFormatter.js');
+const routesNotFounder = require('./middlewares/routerNotFound.js');
+
 //importo router
 const routerEvents = require('./routers/events.js');
 
@@ -24,6 +28,10 @@ app.get('/', (req, res) => {
 
 //rotte sono il router eventis
 app.use('/events', routerEvents);
+
+//errors middlewares 
+app.use(routerEvents); //404
+app.use(errorsFormatter); //500
 
 //avvio server  
 app.listen(port, () => {
