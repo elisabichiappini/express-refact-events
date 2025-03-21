@@ -18,8 +18,9 @@ app.get('/', (req, res) => {
         <div>
         <a href="http://localhost:3000/events" target="_blank">Lista Eventi</a>
         </div
-        `)
-});
+        `);
+    }
+);
 
 //rotte sono il router eventis
 app.use('/events', routerEvents);

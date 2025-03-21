@@ -1,8 +1,9 @@
-const { error } = require('console');
+// const { error } = require('console');
 const fs = require('fs');
 const path = require('path');
 
 const filePath = path.join(__dirname, '../db/events.json');
+const events = require(filePath);
 
 class Event {
     static lastId = 0;
@@ -47,12 +48,10 @@ class Event {
     }
 
     static getEventById(id) {
-        const events = require(filePath);
         return events.find((event) => event.id === id);
     }
 
     static getEVentFilterd(filters) {
-        const events = require(filePath);
         return events.filter((event) => {
             for (const element in filters) {
                 if(event[element] !== filters[element]) {
