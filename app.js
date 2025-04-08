@@ -7,7 +7,8 @@ const host = process.env.HOST || 'localhost';
 
 //middlewares
 const errorsFormatter = require('./middlewares/errorFormatter.js');
-const routesNotFounder = require('./middlewares/routerNotFound.js');
+const routerNotFound = require('./middlewares/routerNotFound.js');
+const postEventValidator = require('./middlewares/routerNotFound.js');
 
 //importo router
 const routerEvents = require('./routers/events.js');
@@ -30,7 +31,7 @@ app.get('/', (req, res) => {
 app.use('/events', routerEvents);
 
 //errors middlewares 
-app.use(routerEvents); //404
+app.use(routerNotFound); //404
 app.use(errorsFormatter); //500
 
 //avvio server  

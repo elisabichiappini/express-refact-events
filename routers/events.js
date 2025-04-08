@@ -4,12 +4,13 @@ const router = express.Router();
 //importo il controller
 const controllerEvents = require('../controllers/events.js');
 const controllerReservation = require('../controllers/reservations.js');
+const postEventValidator = require('../middlewares/postEventValidator.js');
 
 //creo rotte 
 router.get('/', controllerEvents.index); // tutti gli eventi
-router.get('/:id', controllerEvents.show); // aggiorna evento
-router.post('/', controllerEvents.store); // creo nuovo evento
-router.put('/:event', controllerEvents.update)
+router.post('/',postEventValidator, controllerEvents.store); // creo nuovo evento
+router.get('/:id', controllerEvents.show);  //mostra specifico evento
+router.put('/:event', controllerEvents.update);// aggiorna evento
 
 //reservation rotte
 router.get('/:event/reservations', controllerReservation.index);
