@@ -8,7 +8,7 @@ const host = process.env.HOST || 'localhost';
 //middlewares
 const errorsFormatter = require('./middlewares/errorFormatter.js');
 const routerNotFound = require('./middlewares/routerNotFound.js');
-const postEventValidator = require('./middlewares/routerNotFound.js');
+const postEventValidator = require('./middlewares/postEventValidator.js');
 
 //importo router
 const routerEvents = require('./routers/events.js');
